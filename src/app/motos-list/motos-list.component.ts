@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MotoCartService } from '../moto-cart.service';
+import { MotoDataService } from '../moto-data.service';
+import { Moto } from './moto';
 
 @Component({
   selector: 'app-motos-list',
@@ -7,11 +10,30 @@ import { Component } from '@angular/core';
 })
 export class MotosListComponent {
 
-  moto = {
-    "model": "Classic 350",
-    "color": "Halcon Black",
-    "stock": 4,
-    "price": 900,
-    "image": "assets/images/classic.jpg",
-  }
+  motos: Moto []= [];
+
+constructor(
+  private cart: MotoCartService,
+  private motoDataService: MotoDataService) { 
 }
+
+ngOnInit(): void{
+  this.motoDataService.getAll()
+ .subscribe(motos => this.motos= motos);
+}
+
+addToCart(moto: Moto):void{
+  this.cart.addToCart(moto);
+  moto.stock -= moto.quantity;
+  moto.quantity = 0;
+}
+
+maxReached(m: String){
+  console.log (m);
+}
+
+}
+function subscribe(motos: Moto[], arg1: Moto[]) {
+  throw new Error('Function not implemented.');
+}
+

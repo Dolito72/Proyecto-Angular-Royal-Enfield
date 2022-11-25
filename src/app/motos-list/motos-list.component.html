@@ -1,6 +1,6 @@
 <h5 class="mt-3 mb-3 text-center">Lista de motos</h5>
 
-<table class="table rounded ml-5  p-2 text-dark bg -opacity-10">
+<table class="table rounded ml-5  p-2 text-dark bg -opacity-10 - text-center">
     <thead class="table-light">
         <tr>
             <th scope="col">Imagen</th>
@@ -8,38 +8,22 @@
             <th scope="col">Color</th>
             <th scope="col">Stock</th>
             <th scope="col">Precio</th>
-            <th scope="col"></th>
+            <th scope="col">Compra</th>
         </tr>
     </thead>
     <tbody class="table-group-divider">
-        <tr>
-            <td> <img [src]="moto.image" alt="moto.model"/></td>
+        <tr *ngFor="let moto of motos" [ngClass]="{offer:moto.offer}"> 
+            <td> <img width="100" [src]="moto.image" [alt]="moto.model"/></td>
             <td>{{moto.model}}</td>
             <td>{{moto.color}}</td>
             <td>{{moto.stock}}</td>
-            <td>{{moto.price}}</td>
+            <td>{{moto.price | currency: "USD"}}</td>
+            <td>
+                <app-input-number [(quantity)]="moto.quantity" [max]="moto.stock" (maxReached)="maxReached($event)"></app-input-number>
+                <button class="btn btn-secondary" (click)="addToCart(moto)">Comprar</button>
+            </td>
            
         </tr>
-        <tr> 
-            <td> <img [src]="moto.image" alt="moto.model"/></td>
-            <td>Interceptor 650</td>
-            <td>Ventura Blue</td>
-            <td>1</td>
-            <td>1000</td>
-        </tr>
-        <tr> 
-            <td> <img [src]="moto.image" alt="moto.model"/></td>
-            <td>Himalayan</td>
-            <td>Mirage Silver</td>
-            <td>6</td>
-            <td>1180</td>
-        </tr>
-        <tr>
-            <td> <img [src]="moto.image" [alt]="moto.model"/></td>
-            <td>Meteor 350</td>
-            <td>Stellar Red</td>
-            <td>3</td>
-            <td>900</td>
-        </tr>
+        
     </tbody>
 </table>
