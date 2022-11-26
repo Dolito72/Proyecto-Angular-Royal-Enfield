@@ -25,10 +25,9 @@ export class MotoCartService {
       }
    console.log(this._cartList);
    this.cartList.next(this._cartList);
-  
-
   }
  
+  
 
 
 }

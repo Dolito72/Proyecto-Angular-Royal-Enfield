@@ -31,13 +31,14 @@ export class MotoCartComponent implements OnInit {
     return total;
   }
 
-  vaciar() {
-    this.cartList = [];
-  }
 
 
 
 }
 
 
+
+function addtoCart() {
+  throw new Error('Function not implemented.');
+}
 
