@@ -29,11 +29,7 @@ export class MotoCartService {
 
   }
  
-  clearCart() {
-    this._cartList = [];
-    return this._cartList;
-  }
- 
+  
 
 
 }
