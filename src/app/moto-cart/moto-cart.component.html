@@ -8,7 +8,6 @@
                     <th scope="col">Modelo</th>
                     <th scope="col">Cantidad</th>
                     <th scope="col"> Precio</th>
-
                 </tr>
             </thead>
             <tbody class="table-light text-center" *ngFor="let moto of cartList">
@@ -17,18 +16,22 @@
                     <td>{{moto.model}}</td>
                     <td>{{moto.quantity}}</td>
                     <td>{{moto.price | currency: "USD"}}</td>
-
-
                 </tr>
             </tbody>
         </table>
 
-        <div class="alert alert-dark text-end" role="alert">El total de su compra es:   
+        <div class="alert alert-dark text-end" role="alert">El total de su compra es:
             <h2 class="badge bg-secondary">{{ total() | currency}}</h2>
         </div>
-        
+
         <div class="text-end">
             <button>Comprar</button>
+        </div>
+        
+        <div class="mb-3 mt-3 text-end">
+            <button>
+                <img (click)="vaciar()" src="assets/images/trash.svg" alt="Vaciar carrito" width="30" height="30px" />
+            </button>
         </div>
     </div>
 </div>
