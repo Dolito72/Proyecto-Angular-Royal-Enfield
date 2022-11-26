@@ -6,10 +6,11 @@ import { Moto } from './motos-list/moto';
   providedIn: 'root'
 })
 
+
 export class MotoCartService {
   private _cartList: Moto[] = [];
   cartList: BehaviorSubject<Moto[]> =new BehaviorSubject(this._cartList);
- 
+  total : number;
 
   constructor() { }
 
@@ -20,12 +21,20 @@ export class MotoCartService {
       }
       else{
         item.quantity += moto.quantity;
+       
       }
    console.log(this._cartList);
    this.cartList.next(this._cartList);
+  
 
   }
  
+  clearCart() {
+    this._cartList = [];
+    return this._cartList;
+  }
+ 
+
 
 }
  

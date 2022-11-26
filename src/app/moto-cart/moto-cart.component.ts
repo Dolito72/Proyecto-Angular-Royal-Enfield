@@ -13,16 +13,13 @@ import { MotosListComponent } from '../motos-list/motos-list.component';
 export class MotoCartComponent {
   total : number;
   cartList$: Observable<Moto[]>;
-  motos: any;
+  motos: Moto [];
   constructor(private cart:MotoCartService ) { 
     this.cartList$ = cart.cartList.asObservable();
+    
   }
 
-ngOnInit(): void{
-  this.motos.forEach(moto => {
-    this.total += moto.quantity * moto.price
-  });
-}
+  
 
 
 }
