@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Observable, observable } from 'rxjs';
 import { MotoCartService } from '../moto-cart.service';
+import { MotoDataService } from '../moto-data.service';
 import { Moto } from '../motos-list/moto';
+import { MotosListComponent } from '../motos-list/motos-list.component';
 
 @Component({
   selector: 'app-moto-cart',
@@ -9,13 +11,18 @@ import { Moto } from '../motos-list/moto';
   styleUrls: ['./moto-cart.component.scss']
 })
 export class MotoCartComponent {
-
+  total : number;
   cartList$: Observable<Moto[]>;
+  motos: any;
   constructor(private cart:MotoCartService ) { 
     this.cartList$ = cart.cartList.asObservable();
   }
 
-
+ngOnInit(): void{
+  this.motos.forEach(moto => {
+    this.total += moto.quantity * moto.price
+  });
+}
 
 
 }
