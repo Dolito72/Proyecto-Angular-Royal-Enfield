@@ -36,11 +36,24 @@ export class InputNumberComponent {
       this.quantityChange.emit(this.quantity);
     }
   
-  changeQuantity(event: { preventDefault: () => void; }): void{
-    event.preventDefault();
+  changeQuantity(event: any): void {
+    console.log(event);
     this.quantityChange.emit(this.quantity);
   }
-
+  cambioDePuntaje(event: { preventDefault():any;key: any;target:any },moto:Moto):void{
+    if (event.key<0 || event.key>10)
+      event.preventDefault();
+    
+  }
+  verifyMotoQuantity(moto){
+    if(moto.quantity > moto.stock) {
+      alert("No hay suficientes cervezas en stock");
+    }
+    if(moto.quantity < 0) {
+      alert("No se pueden encargar cervezas negativas ");
+    }
+    moto.quantity = 0;
+  }
 
 
 }

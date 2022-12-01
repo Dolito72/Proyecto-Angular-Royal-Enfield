@@ -33,7 +33,4 @@ maxReached(m: String){
 }
 
 }
-function subscribe(motos: Moto[], arg1: Moto[]) {
-  throw new Error('Function not implemented.');
-}
 

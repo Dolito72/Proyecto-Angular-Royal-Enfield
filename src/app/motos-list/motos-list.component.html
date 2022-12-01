@@ -16,10 +16,10 @@
             <td> <img width="100" [src]="moto.image" [alt]="moto.model"/></td>
             <td>{{moto.model}}</td>
             <td>{{moto.color}}</td>
-            <td>{{moto.stock}}</td>
+            <td><span class="badge text-bg-dark" *ngIf="moto.stock==0">SIN STOCK</span></td>
             <td>{{moto.price | currency: "USD"}}</td>
             <td>
-                <app-input-number [(quantity)]="moto.quantity" [max]="moto.stock" (maxReached)="maxReached($event)"></app-input-number>
+                <app-input-number [(quantity)]="moto.quantity" [max]="moto.stock"*ngIf="moto.stock"  (maxReached)="maxReached($event)"></app-input-number>
                 <button class="btn btn-secondary" (click)="addToCart(moto)">Comprar</button>
             </td>
            

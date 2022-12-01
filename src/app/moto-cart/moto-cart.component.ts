@@ -14,7 +14,7 @@ import { MotosListComponent } from '../motos-list/motos-list.component';
 export class MotoCartComponent implements OnInit {
 
 
-  cartList!: Moto[];
+  cartList: Moto[];
   constructor(private cart: MotoCartService) {
 
     cart.cartList.subscribe((observable: Moto[]) => this.cartList = observable);
@@ -37,8 +37,4 @@ export class MotoCartComponent implements OnInit {
 }
 
 
-
-function addtoCart() {
-  throw new Error('Function not implemented.');
-}
 

@@ -15,7 +15,7 @@ export class MotoCartService {
   constructor() { }
 
   addToCart(moto: Moto) {
-    let item: Moto = this._cartList.find((v1) => v1.model == moto.model)!;
+    let item: Moto | undefined = this._cartList.find((v1) => v1.model == moto.model);
       if(!item){
         this._cartList.push ({...moto});
       }
