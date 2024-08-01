@@ -1,4 +1,12 @@
-# RoyalEnfield
+# Proyecto RoyalEnfield con Angular
+Los temas mínimos son:
+1. Ruteo (dos secciones como mínimo)
+2. Componentes (al menos una pagina con 2 componentes)
+3. Interfaces (datos tipados)
+4. Directivas (usar ng-for y alguna de ng-if o ng-class)
+5. Comunicación entre componentes (una de las dos formas al menos)
+6. Servicios (tener un servicio al menos, ya sea para comunicar componentes, consumir una API o tener lógica de negocio aislada)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
